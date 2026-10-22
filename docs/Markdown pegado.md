@@ -184,7 +184,7 @@ El plan sigue el orden de implementación: scaffold y assets → sistema de dise
 
     - Propuesta de valor (texto Req 9.1); Metodología de 5 pasos con nombre y descripción; Enfoque de 4 pilares con nombre y descripción; modalidad de atención remota y presencial
 
-    - Sección "Liderazgo Ejecutivo" con exactamente 2 integrantes visibles simultáneamente: Macarena Herrera R. (Gerente General) y Carlos Rojas Leiton (Consultor TI Principal)
+    - Sección "Liderazgo Ejecutivo" con exactamente 2 integrantes visibles simultáneamente: Macarena Herrera R. (Gerente General) y Carlos Rojas L. (Consultor TI Principal)
 
     - Sección de Valores con mínimo 4 valores (título + descripción cada uno)
 

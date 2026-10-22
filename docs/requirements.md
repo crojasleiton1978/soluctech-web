@@ -139,7 +139,7 @@ El sitio web consta de cuatro páginas principales: Inicio, Servicios, Nosotros 
 2. THE Página_Nosotros SHALL mostrar la Metodología de cinco pasos de Soluctech, donde cada paso se presenta con su nombre y descripción: Descubrimiento como reunión para entender el desafío; Diagnóstico como análisis y priorización de necesidades; Propuesta como alcance, entregables, plazos y valor; Ejecución como acompañamiento y seguimiento de avances; y Cierre como resultados, recomendaciones y próximos pasos.
 3. THE Página_Nosotros SHALL mostrar el enfoque de cuatro pilares de Soluctech, donde cada pilar se presenta con su nombre y descripción: Entender el desafío como comprender a fondo las necesidades y contexto de la empresa; Priorizar oportunidades como identificar iniciativas con mayor potencial de valor; Definir hoja de ruta como diseñar un plan de acción con metas concretas; y Acompañar resultados como supervisar la ejecución para asegurar el impacto esperado.
 4. THE Página_Nosotros SHALL mostrar la modalidad de atención de Soluctech indicando que es remota y presencial según requerimiento.
-5. THE Página_Nosotros SHALL mostrar el liderazgo ejecutivo de Soluctech, identificando a Macarena Herrera R. como Gerente General y a Carlos Rojas Leiton como Consultor TI Principal.
+5. THE Página_Nosotros SHALL mostrar el liderazgo ejecutivo de Soluctech, identificando a Macarena Herrera R. como Gerente General y a Carlos Rojas L. como Consultor TI Principal.
 
 ### Requirement 10: Página Nosotros — Equipo Directivo
 
@@ -149,7 +149,7 @@ El sitio web consta de cuatro páginas principales: Inicio, Servicios, Nosotros 
 
 1. THE Página_Nosotros SHALL mostrar una sección titulada "Liderazgo Ejecutivo" que presente exactamente dos integrantes del equipo directivo de Soluctech, visibles simultáneamente en la misma sección.
 2. THE Página_Nosotros SHALL mostrar a Macarena Herrera R. como texto visible con el cargo de Gerente General también como texto visible.
-3. THE Página_Nosotros SHALL mostrar a Carlos Rojas Leiton como texto visible con el cargo de Consultor TI Principal también como texto visible.
+3. THE Página_Nosotros SHALL mostrar a Carlos Rojas L. como texto visible con el cargo de Consultor TI Principal también como texto visible.
 
 ### Requirement 11: Página Nosotros — Valores
 
@@ -186,7 +186,7 @@ El sitio web consta de cuatro páginas principales: Inicio, Servicios, Nosotros 
 #### Acceptance Criteria
 
 1. THE Página_Contacto SHALL mostrar el correo de contacto directo crojasl@soluctech.cl como texto legible en una sección de datos de contacto y como un enlace de correo electrónico clicable.
-2. THE Página_Contacto SHALL mostrar el nombre y cargo de los responsables de contacto: Macarena Herrera R. como Gerente General y Carlos Rojas Leiton como Consultor TI.
+2. THE Página_Contacto SHALL mostrar el nombre y cargo de los responsables de contacto: Macarena Herrera R. como Gerente General y Carlos Rojas L. como Consultor TI.
 3. THE Página_Contacto SHALL mostrar una sección de preguntas frecuentes que explique que la reunión inicial de descubrimiento tiene como propósito entender el desafío del cliente y que no genera costo ni obligación de contratación.
 4. THE Página_Contacto SHALL mostrar en la sección de preguntas frecuentes las tres Modalidades de contratación disponibles: Diagnóstico Ejecutivo, Proyecto Específico y Asesoría Recurrente.
 5. THE Página_Contacto SHALL mostrar un CTA que invite al visitante a completar el Formulario_Contacto.

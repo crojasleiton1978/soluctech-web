@@ -86,7 +86,7 @@ Secciones en orden del documento:
 - Metodología de 5 pasos con nombre y descripción.
 - Enfoque de 4 pilares con nombre y descripción.
 - Modalidad de atención (remota y presencial según requerimiento).
-- **Liderazgo Ejecutivo**: sección con exactamente 2 integrantes visibles simultáneamente: Macarena Herrera R. (Gerente General) y Carlos Rojas Leiton (Consultor TI Principal).
+- **Liderazgo Ejecutivo**: sección con exactamente 2 integrantes visibles simultáneamente: Macarena Herrera R. (Gerente General) y Carlos Rojas L. (Consultor TI Principal).
 - **Valores**: al menos 4 valores, cada uno con título y descripción.
 - CTA hacia `contacto.html`.
 

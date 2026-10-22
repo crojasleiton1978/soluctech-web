@@ -27,7 +27,7 @@ SOLUCTECH — ESPECIFICACIONES DE SITIO
 
  Gerencia General:                   Macarena Herrera R.
 
- Consultor TI Principal:             Carlos Rojas Leiton
+ Consultor TI Principal:             Carlos Rojas L.
 
  Correo de Contacto:                 crojasl@soluctech.cl
 
@@ -157,7 +157,7 @@ Documento Técnico y Comercial 2026 — www.soluctech.cl                        
  tecnológicas, modernizar sus procesos e impulsar iniciativas digitales con visión práctica.
  • Liderazgo Ejecutivo:
  - Macarena Herrera R. — Gerente General.
- - Carlos Rojas Leiton — Consultor TI Principal.
+ - Carlos Rojas L. — Consultor TI Principal.
  • Atención: Modalidad remota y presencial según requerimiento.
 
  Sección Contacto y Formulario Web
