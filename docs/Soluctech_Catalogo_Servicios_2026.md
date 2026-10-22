@@ -228,7 +228,7 @@ siguiente paso.
 
 
   Carlos Rojas Leiton | Consultor TI
-  Contacto inicial: crojasleiton@gmail.com
+  Contacto inicial: crojasl@soluctech.cl
 
 
 

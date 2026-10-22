@@ -9,7 +9,7 @@ El objetivo es entregar un sitio rápido, responsivo, accesible y optimizado par
 ### Decisiones de diseño clave
 
 - **Stack:** HTML5 semántico + CSS3 (custom properties, mobile-first) + JavaScript vainilla (ES6+). Sin framework, sin bundle, sin dependencias de runtime.
-- **Despliegue:** Archivos estáticos servidos por un host compatible con HTTPS (por ejemplo, hosting estático con certificado SSL gestionado). El formulario se envía a través de un servicio de terceros (Formspree o FormSubmit) al correo `crojasleiton@gmail.com`.
+- **Despliegue:** Archivos estáticos servidos por un host compatible con HTTPS (por ejemplo, hosting estático con certificado SSL gestionado). El formulario se envía a través de un servicio de terceros (Formspree o FormSubmit) al correo `crojasl@soluctech.cl`.
 - **Idioma:** Contenido en español (`lang="es"`).
 - **Público objetivo:** Empresas que requieren consultoría tecnológica en Chile.
 
@@ -43,7 +43,7 @@ El sitio sigue una arquitectura **multipágina estática tradicional** (MPA). Ca
             │  Recursos estáticos       │  POST del formulario
             ▼                           ▼
    Fuentes (Google Fonts)      Formspree / FormSubmit
-   Google Analytics 4          → crojasleiton@gmail.com
+   Google Analytics 4          → crojasl@soluctech.cl
 ```
 
 ### Responsabilidades por capa
@@ -93,7 +93,7 @@ Secciones en orden del documento:
 ### Página 4 — Contacto (`contacto.html`)
 
 - **Formulario de contacto** (7 campos) con validación JS del lado del cliente y envío vía Formspree/FormSubmit.
-- **Datos de contacto directo**: correo `crojasleiton@gmail.com` como texto y como enlace `mailto:`; nombres y cargos de los responsables.
+- **Datos de contacto directo**: correo `crojasl@soluctech.cl` como texto y como enlace `mailto:`; nombres y cargos de los responsables.
 - **FAQ** (acordeón): propósito de la reunión de descubrimiento (sin costo ni obligación) y las tres modalidades.
 - **CTA** que dirige al formulario.
 
@@ -142,7 +142,7 @@ Pie de página con nombre de la empresa, dominio `www.soluctech.cl`, correo de c
 ```html
 <footer class="site-footer" role="contentinfo">
   <div class="site-footer__brand">Soluctech — www.soluctech.cl</div>
-  <a href="mailto:crojasleiton@gmail.com">crojasleiton@gmail.com</a>
+  <a href="mailto:crojasl@soluctech.cl">crojasl@soluctech.cl</a>
   <nav class="site-footer__nav" aria-label="Navegación del pie de página">
     <a href="index.html">Inicio</a>
     <a href="servicios.html">Servicios</a>
@@ -401,7 +401,7 @@ En móvil, los pasos de la metodología se disponen verticalmente (`flex-directi
 
 ## Form Handling
 
-El formulario (`contacto.html`) tiene 7 campos. La validación se realiza **del lado del cliente en JavaScript** antes del envío; el envío se delega a un servicio de formularios (Formspree o FormSubmit) que entrega los datos al correo `crojasleiton@gmail.com`.
+El formulario (`contacto.html`) tiene 7 campos. La validación se realiza **del lado del cliente en JavaScript** antes del envío; el envío se delega a un servicio de formularios (Formspree o FormSubmit) que entrega los datos al correo `crojasl@soluctech.cl`.
 
 ### Estructura del formulario
 

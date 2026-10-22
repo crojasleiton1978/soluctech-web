@@ -29,7 +29,7 @@ SOLUCTECH — ESPECIFICACIONES DE SITIO
 
  Consultor TI Principal:             Carlos Rojas Leiton
 
- Correo de Contacto:                 crojasleiton@gmail.com
+ Correo de Contacto:                 crojasl@soluctech.cl
 
  Modalidad de Servicio:              Atención Remota y Presencial según requerimiento
 
@@ -163,7 +163,7 @@ Documento Técnico y Comercial 2026 — www.soluctech.cl                        
  Sección Contacto y Formulario Web
  • Formulario Web: Campos requeridos (Nombre, Empresa, Correo, Teléfono opcional, Menú desplegable de
  Servicios, Modalidad preferida, Mensaje).
- • Contacto Directo: crojasleiton@gmail.com
+ • Contacto Directo: crojasl@soluctech.cl
  • Preguntas Frecuentes: Explicación de la reunión inicial de descubrimiento (sin compromiso) y opciones de
  contratación.
 

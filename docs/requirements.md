@@ -171,7 +171,7 @@ El sitio web consta de cuatro páginas principales: Inicio, Servicios, Nosotros 
 3. THE Formulario_Contacto SHALL marcar el campo Teléfono como opcional.
 4. THE Formulario_Contacto SHALL mostrar el campo Servicio como un menú desplegable con las seis opciones de Servicios de Soluctech.
 5. THE Formulario_Contacto SHALL mostrar el campo Modalidad preferida como un selector con las tres opciones de Modalidades de Soluctech.
-6. WHEN el visitante envíe el Formulario_Contacto con todos los campos obligatorios completados, THE Sitio_Web SHALL enviar los datos al correo de contacto crojasleiton@gmail.com.
+6. WHEN el visitante envíe el Formulario_Contacto con todos los campos obligatorios completados, THE Sitio_Web SHALL enviar los datos al correo de contacto crojasl@soluctech.cl.
 7. WHEN el visitante envíe el Formulario_Contacto con todos los campos obligatorios completados y válidos, THE Sitio_Web SHALL mostrar un mensaje de confirmación de envío exitoso.
 8. IF el visitante intenta enviar el Formulario_Contacto sin completar los campos obligatorios, THEN THE Formulario_Contacto SHALL mostrar mensajes de validación indicando qué campos faltan por completar.
 9. IF el visitante ingresa en el campo Correo un valor que no contenga un único símbolo '@' separando una parte local no vacía de un dominio con al menos un punto, THEN THE Formulario_Contacto SHALL mostrar un mensaje de error de validación.
@@ -185,7 +185,7 @@ El sitio web consta de cuatro páginas principales: Inicio, Servicios, Nosotros 
 
 #### Acceptance Criteria
 
-1. THE Página_Contacto SHALL mostrar el correo de contacto directo crojasleiton@gmail.com como texto legible en una sección de datos de contacto y como un enlace de correo electrónico clicable.
+1. THE Página_Contacto SHALL mostrar el correo de contacto directo crojasl@soluctech.cl como texto legible en una sección de datos de contacto y como un enlace de correo electrónico clicable.
 2. THE Página_Contacto SHALL mostrar el nombre y cargo de los responsables de contacto: Macarena Herrera R. como Gerente General y Carlos Rojas Leiton como Consultor TI.
 3. THE Página_Contacto SHALL mostrar una sección de preguntas frecuentes que explique que la reunión inicial de descubrimiento tiene como propósito entender el desafío del cliente y que no genera costo ni obligación de contratación.
 4. THE Página_Contacto SHALL mostrar en la sección de preguntas frecuentes las tres Modalidades de contratación disponibles: Diagnóstico Ejecutivo, Proyecto Específico y Asesoría Recurrente.
