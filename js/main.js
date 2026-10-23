@@ -1,5 +1,11 @@
 "use strict";
 (() => {
+  if (['localhost', '127.0.0.1'].includes(location.hostname)) {
+    const chatScript = document.createElement('script');
+    chatScript.src = '/js/ai-chat-dev.js';
+    chatScript.defer = true;
+    document.head.append(chatScript);
+  }
   const toggle=document.querySelector('.nav-toggle'); const nav=document.querySelector('.site-nav');
   if(toggle&&nav){toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));toggle.setAttribute('aria-label',open?'Abrir menú':'Cerrar menú');nav.classList.toggle('is-open',!open)});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{toggle.setAttribute('aria-expanded','false');nav.classList.remove('is-open')}));}
   document.querySelectorAll('.faq-toggle').forEach(btn=>btn.addEventListener('click',()=>{const opened=btn.getAttribute('aria-expanded')==='true';const panel=document.getElementById(btn.getAttribute('aria-controls'));btn.setAttribute('aria-expanded',String(!opened));btn.querySelector('span').textContent=opened?'+':'−';if(panel)panel.hidden=opened;}));

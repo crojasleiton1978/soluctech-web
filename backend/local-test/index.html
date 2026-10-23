@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Prueba local — Soluctech AI</title>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: system-ui, sans-serif;
+      color: #172333;
+      background: #f3f6f9;
+    }
+
+    body {
+      box-sizing: border-box;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 18px;
+    }
+
+    main {
+      padding: 28px;
+      border: 1px solid #d8e0e8;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 8px 24px #1723330d;
+    }
+
+    h1 { margin-top: 0; }
+    p { line-height: 1.55; }
+
+    .notice {
+      padding: 12px 14px;
+      border-left: 4px solid #d18b00;
+      background: #fff8e8;
+    }
+
+    .endpoint, .privacy {
+      color: #445366;
+      font-size: 0.92rem;
+    }
+
+    label {
+      display: block;
+      margin: 20px 0 8px;
+      font-weight: 650;
+    }
+
+    textarea {
+      box-sizing: border-box;
+      width: 100%;
+      min-height: 110px;
+      padding: 12px;
+      border: 1px solid #aebbc9;
+      border-radius: 6px;
+      font: inherit;
+      resize: vertical;
+    }
+
+    .turnstile { margin: 18px 0; }
+
+    button {
+      padding: 11px 18px;
+      border: 0;
+      border-radius: 6px;
+      color: #fff;
+      background: #155eef;
+      font: inherit;
+      font-weight: 650;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background: #8794a5;
+      cursor: not-allowed;
+    }
+
+    #status { min-height: 1.5em; }
+    #status[data-kind="error"] { color: #a32121; }
+    #status[data-kind="success"] { color: #176b37; }
+
+    #conversation {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .message {
+      padding: 14px;
+      border-radius: 8px;
+      background: #f0f4f8;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .message strong { display: block; margin-bottom: 6px; }
+
+    @media (max-width: 480px) {
+      main { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Prueba local de Soluctech AI</h1>
+    <p class="notice">
+      Página de desarrollo independiente. No forma parte del sitio corporativo.
+      No ingreses nombres, datos de contacto ni otra información personal.
+    </p>
+    <p class="endpoint">
+      Backend: <code>http://127.0.0.1:8787/api/chat</code><br>
+      Origen esperado: <code>http://localhost:8000</code>
+    </p>
+
+    <form id="chat-form">
+      <label for="question">Pregunta sobre los servicios de Soluctech</label>
+      <textarea id="question" name="question" maxlength="1200" required
+        placeholder="Ej.: ¿Cómo puede Soluctech ayudar a priorizar iniciativas de inteligencia artificial?"></textarea>
+      <div class="turnstile">
+        <div class="cf-turnstile"
+          data-sitekey="1x00000000000000000000AA"
+          data-action="soluctech_ai_chat"
+          data-callback="onTurnstileVerified"
+          data-expired-callback="onTurnstileExpired"
+          data-error-callback="onTurnstileError"></div>
+      </div>
+      <button id="submit" type="submit" disabled>Enviar pregunta</button>
+      <p id="status" role="status" aria-live="polite">Esperando la verificación de Turnstile…</p>
+    </form>
+
+    <section id="conversation" aria-label="Conversación" aria-live="polite"></section>
+  </main>
+
+  <script>
+    const API_URL = "http://127.0.0.1:8787/api/chat";
+    const MAX_MESSAGES = 8;
+    const MAX_TOTAL_LENGTH = 5_000;
+    const form = document.querySelector("#chat-form");
+    const questionField = document.querySelector("#question");
+    const submitButton = document.querySelector("#submit");
+    const status = document.querySelector("#status");
+    const conversationView = document.querySelector("#conversation");
+    const conversation = [];
+    let turnstileToken = "";
+    let submitting = false;
+
+    function setStatus(message, kind = "") {
+      status.textContent = message;
+      status.dataset.kind = kind;
+    }
+
+    function updateSubmitButton() {
+      submitButton.disabled = submitting || !turnstileToken || !questionField.value.trim();
+    }
+
+    function trimMessages(messages) {
+      const trimmed = [...messages];
+      while (trimmed.length > MAX_MESSAGES ||
+          trimmed.reduce((total, message) => total + message.content.length, 0) > MAX_TOTAL_LENGTH) {
+        trimmed.shift();
+      }
+      return trimmed;
+    }
+
+    function showMessage(label, content) {
+      const article = document.createElement("article");
+      article.className = "message";
+      const heading = document.createElement("strong");
+      heading.textContent = label;
+      const text = document.createElement("span");
+      text.textContent = content;
+      article.append(heading, text);
+      conversationView.append(article);
+    }
+
+    window.onTurnstileVerified = (token) => {
+      turnstileToken = token;
+      setStatus("Verificación lista. El token se enviará solo al backend local.");
+      updateSubmitButton();
+    };
+
+    window.onTurnstileExpired = () => {
+      turnstileToken = "";
+      setStatus("La verificación venció. Espera una nueva verificación de Turnstile.", "error");
+      updateSubmitButton();
+    };
+
+    window.onTurnstileError = () => {
+      turnstileToken = "";
+      setStatus("No se pudo cargar Turnstile. Revisa tu conexión e inténtalo nuevamente.", "error");
+      updateSubmitButton();
+    };
+
+    questionField.addEventListener("input", updateSubmitButton);
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const question = questionField.value.trim();
+      if (!question || question.length > 1_200 || !turnstileToken || submitting) return;
+
+      const pendingMessages = trimMessages([
+        ...conversation,
+        { role: "user", content: question }
+      ]);
+      const token = turnstileToken;
+      submitting = true;
+      turnstileToken = "";
+      updateSubmitButton();
+      setStatus("Consultando el backend local…");
+
+      try {
+        const response = await fetch(API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            messages: pendingMessages,
+            turnstileToken: token
+          })
+        });
+        let result;
+        try {
+          result = await response.json();
+        } catch {
+          throw new Error(`El backend devolvió una respuesta no válida (HTTP ${response.status}).`);
+        }
+
+        if (!response.ok) {
+          throw new Error(result.error || `La solicitud falló (HTTP ${response.status}).`);
+        }
+        if (typeof result.reply !== "string" || !result.reply.trim()) {
+          throw new Error("El backend no devolvió una respuesta del modelo.");
+        }
+
+        conversation.splice(0, conversation.length, ...trimMessages([
+          ...pendingMessages,
+          { role: "assistant", content: result.reply }
+        ]));
+        showMessage("Tú", question);
+        showMessage("Soluctech AI", result.reply);
+        questionField.value = "";
+        setStatus(`Respuesta recibida del backend (HTTP ${response.status}).`, "success");
+      } catch (error) {
+        setStatus(error.message || "No se pudo conectar con el backend local.", "error");
+      } finally {
+        submitting = false;
+        if (window.turnstile) window.turnstile.reset();
+        updateSubmitButton();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "soluctech-ai-backend",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-22",
+  "workers_dev": false,
+  "ai": {
+    "binding": "AI"
+  },
+  "vars": {
+    "ALLOWED_ORIGINS": "https://soluctech.cl,https://www.soluctech.cl,https://crojasleiton1978.github.io"
+  },
+  "ratelimits": [
+    {
+      "name": "CHAT_RATE_LIMITER",
+      "namespace_id": "48273164",
+      "simple": {
+        "limit": 5,
+        "period": 60
+      }
+    }
+  ],
+  "env": {
+    "dev": {
+      "name": "soluctech-ai-backend-dev",
+      "workers_dev": true,
+      "ai": {
+        "binding": "AI"
+      },
+      "vars": {
+        "ALLOWED_ORIGINS": "http://localhost:8000,http://127.0.0.1:8000,http://localhost:8001,http://127.0.0.1:8001",
+        "TURNSTILE_TEST_MODE": "true"
+      },
+      "ratelimits": [
+        {
+          "name": "CHAT_RATE_LIMITER",
+          "namespace_id": "48273165",
+          "simple": {
+            "limit": 5,
+            "period": 60
+          }
+        }
+      ]
+    }
+  }
+}
