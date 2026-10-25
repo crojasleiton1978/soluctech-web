@@ -1,8 +1,23 @@
 "use strict";
 (() => {
-  if (['localhost', '127.0.0.1'].includes(location.hostname)) {
+  const isLocalHost = ['localhost', '127.0.0.1'].includes(location.hostname);
+  const chatConfig = isLocalHost
+    ? {
+        apiUrl: 'http://127.0.0.1:8787/api/chat',
+        siteKey: '1x00000000000000000000AA'
+      }
+    : ['www.soluctech.cl', 'soluctech.cl'].includes(location.hostname)
+      ? {
+          apiUrl: 'https://soluctech-ai-backend.soluctech-ai.workers.dev/api/chat',
+          siteKey: '0x4AAAAAAFibKXdWBOjeutlX'
+        }
+      : null;
+  if (chatConfig) {
     const chatScript = document.createElement('script');
-    chatScript.src = '/js/ai-chat-dev.js';
+    chatScript.src = '/js/ai-chat.js';
+    chatScript.dataset.apiUrl = chatConfig.apiUrl;
+    chatScript.dataset.siteKey = chatConfig.siteKey;
+    chatScript.onerror = () => console.error('No se pudo cargar el chat de Soluctech AI.');
     chatScript.defer = true;
     document.head.append(chatScript);
   }

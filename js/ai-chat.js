@@ -1,9 +1,12 @@
 "use strict";
 (() => {
-  if (!['localhost', '127.0.0.1'].includes(location.hostname)) return;
-
-  const API_URL = 'http://127.0.0.1:8787/api/chat';
-  const SITE_KEY = '1x00000000000000000000AA';
+  const configuration = document.currentScript?.dataset;
+  const API_URL = configuration?.apiUrl;
+  const SITE_KEY = configuration?.siteKey;
+  if (!API_URL || !SITE_KEY) {
+    console.error('Falta la configuración pública del chat de Soluctech AI.');
+    return;
+  }
   const TURNSTILE_ACTION = 'soluctech_ai_chat';
   const history = [];
   let token = '';
@@ -32,7 +35,7 @@
     .sa-chat-input{width:100%;min-height:68px;max-height:120px;resize:vertical;padding:10px;border:1px solid #aebbc9;border-radius:8px;font:14px/1.4 system-ui,sans-serif}
     .sa-chat-send{min-height:42px;padding:9px 13px;border:0;border-radius:8px;background:#1265a8;color:#fff;font-weight:700;cursor:pointer}
     .sa-chat-send:disabled{background:#8794a5;cursor:not-allowed}
-    @media(max-width:480px){.sa-chat-button{right:16px;bottom:16px}.sa-chat-panel{right:8px;bottom:78px;width:calc(100vw - 16px);height:min(620px,calc(100vh - 96px))}}
+    @media(max-width:480px){.sa-chat-button{right:16px;bottom:16px}.sa-chat-panel{right:8px;bottom:78px;width:calc(100vw - 32px);height:min(620px,calc(100vh - 96px))}}
   `;
   document.head.append(style);
 
@@ -145,7 +148,7 @@
     sending = true;
     updateButton();
     addMessage('user', question);
-    setStatus('Consultando el backend de desarrollo…');
+    setStatus('Consultando el asistente de Soluctech…');
 
     try {
       const response = await fetch(API_URL, {
@@ -170,7 +173,7 @@
       ]));
       addMessage('assistant', result.reply);
       input.value = '';
-      setStatus('Respuesta recibida del agente de desarrollo.');
+      setStatus('Respuesta recibida del asistente de Soluctech.');
     } catch (error) {
       setStatus(error.message || 'No se pudo conectar con el backend local.', true);
     } finally {
@@ -194,10 +197,19 @@
         setStatus('La verificación venció; espera una nueva.', true);
         updateButton();
       },
-      'error-callback': () => {
+      'error-callback': (errorCode) => {
         token = '';
-        setStatus('No se pudo cargar Turnstile.', true);
+        const messages = {
+          '110100': 'La Site Key de Turnstile no es válida. Verifica la clave pública en Cloudflare.',
+          '110110': 'No se encontró la Site Key de Turnstile. Verifica la clave pública en Cloudflare.',
+          '110200': 'El dominio de este sitio no está autorizado para Turnstile.',
+          '400020': 'La Site Key de Turnstile no es válida. Verifica que copiaste la clave activa de producción en Cloudflare.',
+          '400021': 'La región de la Site Key no coincide con la del script de Turnstile.',
+          '400070': 'La Site Key de Turnstile está deshabilitada en Cloudflare.'
+        };
+        setStatus(messages[String(errorCode)] || 'No se pudo completar la verificación de seguridad. Recarga la página e inténtalo nuevamente.', true);
         updateButton();
+        return true;
       }
     });
   };
