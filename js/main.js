@@ -1,5 +1,26 @@
 "use strict";
 (() => {
+  const isLocalHost = ['localhost', '127.0.0.1'].includes(location.hostname);
+  const chatConfig = isLocalHost
+    ? {
+        apiUrl: 'http://127.0.0.1:8787/api/chat',
+        siteKey: '1x00000000000000000000AA'
+      }
+    : ['www.soluctech.cl', 'soluctech.cl'].includes(location.hostname)
+      ? {
+          apiUrl: 'https://soluctech-ai-backend.soluctech-ai.workers.dev/api/chat',
+          siteKey: '0x4AAAAAAFibKXdWBOjeutlX'
+        }
+      : null;
+  if (chatConfig) {
+    const chatScript = document.createElement('script');
+    chatScript.src = '/js/ai-chat.js';
+    chatScript.dataset.apiUrl = chatConfig.apiUrl;
+    chatScript.dataset.siteKey = chatConfig.siteKey;
+    chatScript.onerror = () => console.error('No se pudo cargar el chat de Soluctech AI.');
+    chatScript.defer = true;
+    document.head.append(chatScript);
+  }
   const toggle=document.querySelector('.nav-toggle'); const nav=document.querySelector('.site-nav');
   if(toggle&&nav){toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));toggle.setAttribute('aria-label',open?'Abrir menú':'Cerrar menú');nav.classList.toggle('is-open',!open)});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{toggle.setAttribute('aria-expanded','false');nav.classList.remove('is-open')}));}
   document.querySelectorAll('.faq-toggle').forEach(btn=>btn.addEventListener('click',()=>{const opened=btn.getAttribute('aria-expanded')==='true';const panel=document.getElementById(btn.getAttribute('aria-controls'));btn.setAttribute('aria-expanded',String(!opened));btn.querySelector('span').textContent=opened?'+':'−';if(panel)panel.hidden=opened;}));
