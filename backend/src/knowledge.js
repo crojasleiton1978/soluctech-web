@@ -1,17 +1,18 @@
-export const KNOWLEDGE = `Soluctech transforma desafíos en soluciones tecnológicas y conecta la tecnología con los objetivos del negocio. Apoya a empresas para tomar mejores decisiones tecnológicas, modernizar procesos y ejecutar iniciativas digitales con una mirada estratégica y práctica.
+export const KNOWLEDGE = `Soluctech ofrece dirección TI externa para pymes en Chile que necesitan ordenar su tecnología, coordinar proveedores y avanzar en proyectos sin incorporar una gerencia TI de jornada completa. Conecta las decisiones, los proveedores y los proyectos con las prioridades del negocio.
 
 Servicios aprobados:
-1. Consultoría TI y estrategia: diagnóstico tecnológico y de riesgos, plan estratégico TI y hoja de ruta, gobierno TI, indicadores y seguimiento ejecutivo, evaluación de soluciones, presupuestos y proveedores, y asesoría externa de dirección TI. Entregables indicados: informe ejecutivo, matriz de prioridades y plan de acción.
+1. Consultoría TI y estrategia: Diagnóstico Ejecutivo pagado del estado tecnológico y los riesgos; informe ejecutivo, matriz de riesgos y prioridades, y plan de acción de 90 días con responsables e indicadores propuestos. El plan es una hoja de ruta, no una garantía de resultados. La continuidad puede acordarse como proyecto específico o dirección TI externa mensual. También incluye gobierno TI, indicadores y seguimiento ejecutivo, evaluación de soluciones, presupuestos y proveedores.
 2. Inteligencia Artificial y automatización: levantamiento de procesos, selección de casos de uso con valor tangible, evaluación de factibilidad, seguridad, calidad de datos, riesgos y beneficios esperados; planificación de hoja de ruta, prioridades, responsables e indicadores. Implementación y desarrollo requieren cotización específica.
 3. Gestión de Proyectos TI: planificación y control de hitos, gobierno, PMO y reportabilidad, riesgos, alcance y presupuesto, coordinación de equipos y proveedores.
 4. Ciberseguridad y seguridad de la información: diagnóstico de controles y brechas, evaluación de riesgos y prioridades, recomendaciones de políticas y procedimientos, plan de mejora y continuidad. Las evaluaciones y recomendaciones no sustituyen auditorías ni certificaciones formales.
 5. Desarrollo de software a medida: levantamiento y definición de requerimientos, diseño funcional y técnico, integraciones y modernización, desarrollo mediante alcance y equipo acordados.
 6. QA y aseguramiento de calidad: estrategia y planes de prueba, pruebas funcionales y de integración, matrices de cobertura y trazabilidad, evidencias y gestión de defectos.
+Las seis líneas de servicio pueden contratarse individualmente, con objetivos y alcance acordados.
 
 Modalidades de contratación:
-- Diagnóstico Ejecutivo: análisis de la situación actual, oportunidades, riesgos y recomendaciones priorizadas; servicio acotado y por entrega.
+- Diagnóstico Ejecutivo: servicio pagado, acotado y por entrega; incluye informe ejecutivo, matriz de riesgos y prioridades y plan de acción de 90 días con responsables e indicadores propuestos. El plan no garantiza resultados.
 - Proyecto Específico: consultoría, IA, QA o gestión TI con objetivos, entregables, plazos y responsabilidades acordadas.
-- Asesoría Recurrente: acompañamiento ejecutivo mensual y gobierno tecnológico bajo una bolsa de horas definida.
+- Dirección TI externa mensual: acompañamiento ejecutivo y gobierno tecnológico bajo un alcance acordado.
 Cada propuesta formal considera alcance, exclusiones, hitos, inversión y condiciones. No hay precios publicados en la fuente.
 
 Metodología de cinco pasos: Descubrimiento (reunión para entender el desafío), Diagnóstico (análisis y priorización), Propuesta (alcance, entregables, plazos y valor), Ejecución (acompañamiento y seguimiento) y Cierre (resultados, recomendaciones y próximos pasos).
